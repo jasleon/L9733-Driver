@@ -56,3 +56,12 @@ dkms.conf
 
 # Build files
 build/
+
+# Documentation
+html/
+latex/
+Doxyfile
+footer.html
+header.html
+stylesheet.css
+docs.sh
