@@ -7,6 +7,8 @@
 
 #include <stdint.h>
 
+#include "spi.h"
+
 /** Keyword used in the command register */
 #define L9773_CMD_KEYWORD    (0b1010 << 12)
 /** Nibble used to set the writing mode to output in the command register */
@@ -40,10 +42,25 @@ typedef enum {
   FMS_RSLT_CMD_TIMEOUT  = 0x03,  //!< Command timeout
 } fms_rslt_t;
 
-fms_rslt_t l9733_set_output_status(void);
+/**
+ * Set outputs 1-8 ON or OFF
+ * @param[in] obj  The SPI object to use for sending the command
+ * @param[in] data The output status value
+*/
+fms_rslt_t l9733_set_output_status(spi_t *obj, uint8_t data);
 
-fms_rslt_t l9733_set_diag_mode(void);
+/**
+ * Set the diagnostic mode on outputs 1-8 to "Latch Mode" or "No Latch Mode"
+ * @param[in] obj  The SPI object to use for sending the command
+ * @param[in] data The diagnostic mode value
+*/
+fms_rslt_t l9733_set_diag_mode(spi_t *obj, uint8_t data);
 
-fms_rslt_t l9733_set_overcurrent_protection(void);
+/**
+ * Set the overcurrent protection on outputs 1-8 ON or OFF
+ * @param[in] obj  The SPI object to use for sending the command
+ * @param[in] data The overcurrent protection value
+*/
+fms_rslt_t l9733_set_protection(spi_t *obj, uint8_t data);
 
 #endif  // L9733_H_
