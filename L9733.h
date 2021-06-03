@@ -37,10 +37,18 @@
 
 /** Types of results from the flight management system (FMS) */
 typedef enum {
-  FMS_RSLT_CMD_COMPLETE = 0x01,  //!< Command complete
-  FMS_RSLT_CMD_FAILED   = 0x02,  //!< Command failed
-  FMS_RSLT_CMD_TIMEOUT  = 0x03,  //!< Command timeout
+  FMS_RSLT_CMD_COMPLETE = 1,  //!< Command complete
+  FMS_RSLT_CMD_FAILED = 2,    //!< Command failed
 } fms_rslt_t;
+
+/** Types of fault status from the L9773 chip */
+typedef enum {
+  L9773_OK = 0,             //!< No fault is present
+  L9773_OPEN_LOAD = 1,      //!< Open load
+  L9773_SHORT_CIRCUIT = 2,  //!< Short circuit to GND (low-side) or short
+                            //!< circuit to Vbat (high-side)
+  L9733_OVERCURRENT = 4,    //!< Overcurrent
+} l9733_fault_status_t;
 
 /**
  * Set outputs 1-8 ON or OFF
@@ -62,5 +70,7 @@ fms_rslt_t l9733_set_diag_mode(spi_t *obj, uint8_t data);
  * @param[in] data The overcurrent protection value
 */
 fms_rslt_t l9733_set_protection(spi_t *obj, uint8_t data);
+
+fms_rslt_t l9733_get_fault_diag(spi_t *obj, l9733_fault_status_t *status);
 
 #endif  // L9733_H_
