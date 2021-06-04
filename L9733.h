@@ -9,6 +9,8 @@
 
 #include "spi.h"
 
+/** Number of outputs available in the L9773 chip */
+#define L9773_OUTPUTS        (8)
 /** Keyword used in the command register */
 #define L9773_CMD_KEYWORD    (0b1010 << 12)
 /** Nibble used to set the writing mode to output in the command register */
@@ -49,6 +51,17 @@ typedef enum {
                             //!< circuit to Vbat (high-side)
   L9733_OVERCURRENT = 4,    //!< Overcurrent
 } l9733_fault_status_t;
+
+/** @brief L9773 Object */
+typedef struct {
+  spi_t *bus;          //!< The SPI object to use for interfacing with the chip
+  uint8_t id;          //!< The L9773 ID number
+  uint8_t output;      //!< The output status value
+  uint8_t diag_mode;   //!< The diagnostic mode value
+  uint8_t protection;  //!< The overcurrent protection value
+  l9733_fault_status_t
+      status[L9773_OUTPUTS];  //!< The fault status of outputs 1-8
+} l9733_t;
 
 /**
  * Set outputs 1-8 ON or OFF
