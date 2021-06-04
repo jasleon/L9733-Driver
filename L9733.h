@@ -19,21 +19,21 @@
 #define L9773_CMD_WM_PROTECT (0b1010 << 8)
 
 /** Position of OUT1 in command register */
-#define L9773_DAT_OUT1 (1 << 0)
+#define L9773_OUT1 (1 << 0)
 /** Position of OUT2 in command register */
-#define L9773_DAT_OUT2 (1 << 1)
+#define L9773_OUT2 (1 << 1)
 /** Position of OUT3 in command register */
-#define L9773_DAT_OUT3 (1 << 2)
+#define L9773_OUT3 (1 << 2)
 /** Position of OUT4 in command register */
-#define L9773_DAT_OUT4 (1 << 3)
+#define L9773_OUT4 (1 << 3)
 /** Position of OUT5 in command register */
-#define L9773_DAT_OUT5 (1 << 4)
+#define L9773_OUT5 (1 << 4)
 /** Position of OUT6 in command register */
-#define L9773_DAT_OUT6 (1 << 5)
+#define L9773_OUT6 (1 << 5)
 /** Position of OUT7 in command register */
-#define L9773_DAT_OUT7 (1 << 6)
+#define L9773_OUT7 (1 << 6)
 /** Position of OUT8 in command register */
-#define L9773_DAT_OUT8 (1 << 7)
+#define L9773_OUT8 (1 << 7)
 
 /** Types of results from the flight management system (FMS) */
 typedef enum {
