@@ -9,6 +9,13 @@
 
 #include "spi.h"
 
+/*******************************************************************************
+ * Simplifies integration with automated testing frameworks in C++ (i.e. gtest)
+*******************************************************************************/
+#if defined(__cplusplus)
+extern "C" {
+#endif
+
 /** Number of outputs available in the L9773 chip */
 #define L9773_OUTPUTS        (8)
 /** Keyword used in the command register */
@@ -100,5 +107,12 @@ fms_rslt_t l9733_set_protection(l9733_t *obj);
  * @return The status of the request
 */
 fms_rslt_t l9733_get_fault_diag(l9733_t *obj);
+
+/*******************************************************************************
+ * Simplifies integration with automated testing frameworks in C++ (i.e. gtest)
+*******************************************************************************/
+#if defined(__cplusplus)
+}
+#endif
 
 #endif  // L9733_H_
