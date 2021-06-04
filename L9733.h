@@ -65,37 +65,33 @@ typedef struct {
 
 /**
  * Set outputs 1-8 ON or OFF
- * @param[in] obj  The SPI object to use for sending the command
- * @param[in] data The output status value
+ * @param[in] obj  The L9773 object to use for sending the command
  * @return The status of the request
 */
-fms_rslt_t l9733_set_output_status(spi_t *obj, uint8_t data);
+fms_rslt_t l9733_set_output_status(l9733_t *obj);
 
 /**
  * Set the diagnostic mode on outputs 1-8 to "Latch Mode" or "No Latch Mode"
- * @param[in] obj  The SPI object to use for sending the command
- * @param[in] data The diagnostic mode value
+ * @param[in] obj  The L9773 object to use for sending the command
  * @note
  * - Set bit to 1 for "Latch Mode"
  * - Set bit to 0 for "No Latch Mode"
  * @return The status of the request
 */
-fms_rslt_t l9733_set_diag_mode(spi_t *obj, uint8_t data);
+fms_rslt_t l9733_set_diag_mode(l9733_t *obj);
 
 /**
  * Set the overcurrent protection on outputs 1-8 ON or OFF
- * @param[in] obj  The SPI object to use for sending the command
- * @param[in] data The overcurrent protection value
+ * @param[in] obj  The L9773 object to use for sending the command
  * @return The status of the request
 */
-fms_rslt_t l9733_set_protection(spi_t *obj, uint8_t data);
+fms_rslt_t l9733_set_protection(l9733_t *obj);
 
 /**
  * Get the fault diagnostic of outputs 1-8
- * @param[in] obj  The SPI object to use for sending the command
- * @param[in] status The array with the diagnostics of outputs 1-8
+ * @param[in] obj  The L9773 object to use for sending the command
  * @return The status of the request
 */
-fms_rslt_t l9733_get_fault_diag(spi_t *obj, l9733_fault_status_t *status);
+fms_rslt_t l9733_get_fault_diag(l9733_t *obj);
 
 #endif  // L9733_H_
