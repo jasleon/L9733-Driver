@@ -77,6 +77,12 @@ fms_rslt_t l9733_set_diag_mode(spi_t *obj, uint8_t data);
 */
 fms_rslt_t l9733_set_protection(spi_t *obj, uint8_t data);
 
+/**
+ * Get the fault diagnostic of outputs 1-8
+ * @param[in] obj  The SPI object to use for sending the command
+ * @param[in] status The array with the diagnostics of outputs 1-8
+ * @return The status of the request
+*/
 fms_rslt_t l9733_get_fault_diag(spi_t *obj, l9733_fault_status_t *status);
 
 #endif  // L9733_H_
