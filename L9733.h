@@ -54,6 +54,7 @@ typedef enum {
  * Set outputs 1-8 ON or OFF
  * @param[in] obj  The SPI object to use for sending the command
  * @param[in] data The output status value
+ * @return The status of the request
 */
 fms_rslt_t l9733_set_output_status(spi_t *obj, uint8_t data);
 
@@ -61,6 +62,10 @@ fms_rslt_t l9733_set_output_status(spi_t *obj, uint8_t data);
  * Set the diagnostic mode on outputs 1-8 to "Latch Mode" or "No Latch Mode"
  * @param[in] obj  The SPI object to use for sending the command
  * @param[in] data The diagnostic mode value
+ * @note
+ * - Set bit to 1 for "Latch Mode"
+ * - Set bit to 0 for "No Latch Mode"
+ * @return The status of the request
 */
 fms_rslt_t l9733_set_diag_mode(spi_t *obj, uint8_t data);
 
@@ -68,6 +73,7 @@ fms_rslt_t l9733_set_diag_mode(spi_t *obj, uint8_t data);
  * Set the overcurrent protection on outputs 1-8 ON or OFF
  * @param[in] obj  The SPI object to use for sending the command
  * @param[in] data The overcurrent protection value
+ * @return The status of the request
 */
 fms_rslt_t l9733_set_protection(spi_t *obj, uint8_t data);
 
