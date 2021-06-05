@@ -1,7 +1,27 @@
 /**
  * @mainpage My L9733 Driver
  * @section intro_section Introduction
-*/
+ * - This driver provides easy access to the core features of the L9773 device.
+ * - The L9733 is a highly flexible output driver that incorporates 8 outputs
+ * that can be used as either internal low or high-side drives in any
+ * combination.
+ * - The device has an 16 bit SPI input to command the 8 output drivers either
+ * "On" or "Off", reducing the I/O port requirement of the microcontroller.
+ * - In addition the SPI output indicates latched fault conditions that may have
+ * occurred.
+ * @section feat_section Features
+ * - Set outputs 1-8 ON or OFF
+ * - Set the diagnostic mode on outputs 1-8 to "Latch Mode" or "No Latch Mode"
+ * - Set the overcurrent protection on outputs 1-8 ON or OFF
+ * - Get the fault diagnostic of outputs 1-8
+ * - Get the thermal fault status
+ * @section limit_section Limitations
+ * - The SPI object should be configured before calling this function
+ * - This driver should not be used in daisy-chained configurations
+ * @section ref_section References
+ * - <a href="https://www.st.com/resource/en/datasheet/l9733.pdf">L9773
+ * Datasheet</a>
+ */
 /**
  * @file L9733.h
  * @brief Provides a high level interface for interacting with an L9733 device.
