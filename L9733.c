@@ -35,7 +35,7 @@ fms_rslt_t l9733_get_fault_diag(l9733_t *obj) {
   };
 
   const uint16_t recv = 0x8001;
-  for (uint16_t i = 0U; i < L9773_OUTPUTS; ++i) {
+  for (uint16_t i = 0U; i < L9773_OUTPUT_NUM; ++i) {
     uint16_t status = recv >> (2 * i);
     status &= 0x0003;
     obj->status[i] = status;

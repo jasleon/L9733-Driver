@@ -17,7 +17,7 @@ extern "C" {
 #endif
 
 /** Number of outputs available in the L9773 chip */
-#define L9773_OUTPUTS        (8)
+#define L9773_OUTPUT_NUM     (8)
 /** Keyword used in the command register */
 #define L9773_CMD_KEYWORD    (0b1010 << 12)
 /** Nibble used to set the writing mode to output in the command register */
@@ -27,22 +27,22 @@ extern "C" {
 /** Nibble used to set the writing mode to protection in the command register */
 #define L9773_CMD_WM_PROTECT (0b1010 << 8)
 
-/** Position of OUT1 in command register */
-#define L9773_OUT1 (1 << 0)
-/** Position of OUT2 in command register */
-#define L9773_OUT2 (1 << 1)
-/** Position of OUT3 in command register */
-#define L9773_OUT3 (1 << 2)
-/** Position of OUT4 in command register */
-#define L9773_OUT4 (1 << 3)
-/** Position of OUT5 in command register */
-#define L9773_OUT5 (1 << 4)
-/** Position of OUT6 in command register */
-#define L9773_OUT6 (1 << 5)
-/** Position of OUT7 in command register */
-#define L9773_OUT7 (1 << 6)
-/** Position of OUT8 in command register */
-#define L9773_OUT8 (1 << 7)
+/** OUT1 bit in command register */
+#define L9773_OUT1_BIT (1 << 0)
+/** OUT2 bit in command register */
+#define L9773_OUT2_BIT (1 << 1)
+/** OUT3 bit in command register */
+#define L9773_OUT3_BIT (1 << 2)
+/** OUT4 bit in command register */
+#define L9773_OUT4_BIT (1 << 3)
+/** OUT5 bit in command register */
+#define L9773_OUT5_BIT (1 << 4)
+/** OUT6 bit in command register */
+#define L9773_OUT6_BIT (1 << 5)
+/** OUT7 bit in command register */
+#define L9773_OUT7_BIT (1 << 6)
+/** OUT8 bit in command register */
+#define L9773_OUT8_BIT (1 << 7)
 
 /** Types of results from the flight management system (FMS) */
 typedef enum {
@@ -67,7 +67,7 @@ typedef struct {
   uint8_t diag_mode;   //!< The diagnostic mode value
   uint8_t protection;  //!< The overcurrent protection value
   l9733_fault_status_t
-      status[L9773_OUTPUTS];  //!< The fault status of outputs 1-8
+      status[L9773_OUTPUT_NUM];  //!< The fault status of outputs 1-8
 } l9733_t;
 
 /**

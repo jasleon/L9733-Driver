@@ -9,24 +9,24 @@ int main() {
   sensor.bus = &spi;
 
   // Set OUT1 output "ON"
-  sensor.output |= L9773_OUT1;
+  sensor.output |= L9773_OUT1_BIT;
   (void)l9733_set_output(&sensor);
   // Set OUT1 output "OFF"
-  sensor.output &= ~L9773_OUT1;
+  sensor.output &= ~L9773_OUT1_BIT;
   (void)l9733_set_output(&sensor);
 
   // Set OUT1 diagnostic mode to "Latch Mode"
-  sensor.diag_mode |= L9773_OUT1;
+  sensor.diag_mode |= L9773_OUT1_BIT;
   (void)l9733_set_diag_mode(&sensor);
   // Set OUT1 diagnostic mode to "No Latch Mode"
-  sensor.diag_mode &= ~L9773_OUT1;
+  sensor.diag_mode &= ~L9773_OUT1_BIT;
   (void)l9733_set_diag_mode(&sensor);
 
   // Set OUT1 protection "ON"
-  sensor.protection |= L9773_OUT1;
+  sensor.protection |= L9773_OUT1_BIT;
   (void)l9733_set_protection(&sensor);
   // Set OUT1 protection "OFF"
-  sensor.protection &= ~L9773_OUT1;
+  sensor.protection &= ~L9773_OUT1_BIT;
   (void)l9733_set_protection(&sensor);
 
   (void)l9733_get_fault_diag(&sensor);
