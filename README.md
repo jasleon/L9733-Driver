@@ -7,7 +7,7 @@ I developed this project in Ubuntu. The following dependencies should be install
 * make
 * gcc/g++
 
-## Build instructions
+## Build Instructions
 1. Clone this repo.
 2. Make a build directory: `mkdir build && cd build`
 3. Compile: `cmake .. && make`
@@ -35,11 +35,11 @@ Here's a brief description of the integrated circuit taken from the datasheet
 
 ## SPI Configuration
 
-- The datasheet does not define a maximum SPI rate. However, it should reach at least 5.4 MHz.
+- The datasheet does not define a maximum SPI rate. However, it should reach at least 5.4 MHz
 - The Clock Polarity (CPOL) is 1
 - The Clock Phase (CPHA) is 0
-- Therefore, the SPI communication mode is 2 in the majority of microcontrollers.
-- The SPI transmit and receive buffers need to store at least 16 bits of data.
+- Therefore, the SPI communication mode is 2 in the majority of microcontrollers
+- The SPI transmit and receive buffers need to store at least 16 bits of data
 
 ## Example
 
@@ -83,7 +83,7 @@ int main() {
 }
 ```
 
-## Tool chain
+## Tool Chain
 * Visual Studio Code, code editing
 * Git, version control
 * GitHub, code hosting service

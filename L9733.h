@@ -16,8 +16,18 @@
  * - Get the fault diagnostic of outputs 1-8
  * - Get the thermal fault status
  * @section limit_section Limitations
- * - The SPI object should be configured before calling this function
+ * - The SPI object should be configured before calling the driver functions
+ * - This driver does not support full-duplex SPI communication
  * - This driver should not be used in daisy-chained configurations
+ * @section cfg_section SPI Configuration
+ * - The datasheet does not define a maximum SPI rate. However, it should reach
+ * at least 5.4 MHz.
+ * - The Clock Polarity (CPOL) is 1
+ * - The Clock Phase (CPHA) is 0
+ * - Therefore, the SPI communication mode is 2 in the majority of
+ * microcontrollers.
+ * - The SPI transmit and receive buffers need to store at least 16 bits of
+ * data.
  * @section ref_section References
  * - <a href="https://www.st.com/resource/en/datasheet/l9733.pdf">L9773
  * Datasheet</a>
