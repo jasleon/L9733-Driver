@@ -16,7 +16,10 @@ I developed this project in Ubuntu. The following dependencies should be install
 ## Introduction
 This driver provides easy access to the core features of the L9773 device.
 
-The L9733 is a highly flexible output driver that incorporates 8 outputs that can be used as either internal low or high-side drives in any combination. The device has an 16 bit SPI input to command the 8 output drivers either "On" or "Off", reducing the I/O port requirement of the microcontroller. In addition the SPI output indicates latched fault conditions that may have occurred.
+Here's a brief description of the integrated circuit taken from the datasheet
+
+> The L9733 is a highly flexible output driver that incorporates 8 outputs that can be used as either internal low or high-side drives in any combination. The device has an 16 bit SPI input to command the 8 output drivers either "On" or "Off", reducing the I/O port requirement of the microcontroller. In addition the SPI output indicates latched fault conditions that may have occurred.
+>
 
 ## Features
 * Set outputs 1-8 ON or OFF
@@ -26,10 +29,22 @@ The L9733 is a highly flexible output driver that incorporates 8 outputs that ca
 * Get the thermal fault status
 
 ## Limitations
-* The SPI object should be configured before calling this function
+* The SPI object should be configured before calling the driver functions
+* This driver does not support full-duplex SPI communication
 * This driver should not be used in daisy-chained configurations
 
+## SPI Configuration
+
+- The datasheet does not define a maximum SPI rate. However, it should reach at least 5.4 MHz.
+- The Clock Polarity (CPOL) is 1
+- The Clock Phase (CPHA) is 0
+- Therefore, the SPI communication mode is 2 in the majority of microcontrollers.
+- The SPI transmit and receive buffers need to store at least 16 bits of data.
+
 ## Example
+
+This snippet shows how this driver should be used
+
 ```c
 #include "L9733.h"
 
@@ -68,7 +83,7 @@ int main() {
 }
 ```
 
-## Toolchain
+## Tool chain
 * Visual Studio Code, code editing
 * Git, version control
 * GitHub, code hosting service
