@@ -2,7 +2,7 @@
 
 #include <stdio.h>
 
-fms_rslt_t l9733_set_output_status(l9733_t *obj) {
+fms_rslt_t l9733_set_output(l9733_t *obj) {
   uint16_t msg = obj->output;
   msg |= L9773_CMD_KEYWORD;
   msg |= L9773_CMD_WM_OUTPUT;

@@ -74,16 +74,16 @@ typedef struct {
  * Set outputs 1-8 ON or OFF
  * @param[in] obj  The L9773 object to use for sending the command
  * @note
- * - Writes the values from the output data field in the L9773 object
+ * - Writes the values from the **output** data field in the L9773 object
  * @return The status of the request
 */
-fms_rslt_t l9733_set_output_status(l9733_t *obj);
+fms_rslt_t l9733_set_output(l9733_t *obj);
 
 /**
  * Set the diagnostic mode on outputs 1-8 to "Latch Mode" or "No Latch Mode"
  * @param[in] obj  The L9773 object to use for sending the command
  * @note
- * - Writes the values from the diag_mode data field in the L9773 object
+ * - Writes the values from the **diag_mode** data field in the L9773 object
  * - Set bit to 1 for "Latch Mode"
  * - Set bit to 0 for "No Latch Mode"
  * @return The status of the request
@@ -94,7 +94,7 @@ fms_rslt_t l9733_set_diag_mode(l9733_t *obj);
  * Set the overcurrent protection on outputs 1-8 ON or OFF
  * @param[in] obj  The L9773 object to use for sending the command
  * @note
- * - Writes the values from the protection data field in the L9773 object
+ * - Writes the values from the **protection** data field in the L9773 object
  * @return The status of the request
 */
 fms_rslt_t l9733_set_protection(l9733_t *obj);
@@ -103,7 +103,7 @@ fms_rslt_t l9733_set_protection(l9733_t *obj);
  * Get the fault diagnostic of outputs 1-8
  * @param[in] obj  The L9773 object to use for sending the command
  * @note
- * - Copies the status from the fault register to the status data field
+ * - Copies the status from the fault register to the **status** data field
  * @return The status of the request
 */
 fms_rslt_t l9733_get_fault_diag(l9733_t *obj);

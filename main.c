@@ -10,10 +10,10 @@ int main() {
 
   // Set OUT1 output "ON"
   sensor.output |= L9773_OUT1;
-  (void)l9733_set_output_status(&sensor);
+  (void)l9733_set_output(&sensor);
   // Set OUT1 output "OFF"
   sensor.output &= ~L9773_OUT1;
-  (void)l9733_set_output_status(&sensor);
+  (void)l9733_set_output(&sensor);
 
   // Set OUT1 diagnostic mode to "Latch Mode"
   sensor.diag_mode |= L9773_OUT1;
