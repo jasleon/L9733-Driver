@@ -14,7 +14,7 @@ I developed this project in Ubuntu. The following dependencies should be install
 4. Run it: `./driver`
 
 ## Introduction
-This driver provides easy access to the core features of the L9773 device.
+This driver provides easy access to the core features of the L9733 device.
 
 Here's a brief description of the integrated circuit taken from the datasheet
 
@@ -55,28 +55,28 @@ int main() {
   sensor.bus = &spi;
 
   // Set OUT1 output "ON"
-  sensor.output |= L9773_OUT1_BIT;
+  sensor.output |= L9733_OUT1_BIT;
   (void)l9733_set_output(&sensor);
   // Set OUT1 output "OFF"
-  sensor.output &= ~L9773_OUT1_BIT;
+  sensor.output &= ~L9733_OUT1_BIT;
   (void)l9733_set_output(&sensor);
 
   // Set OUT1 diagnostic mode to "Latch Mode"
-  sensor.diag_mode |= L9773_OUT1_BIT;
+  sensor.diag_mode |= L9733_OUT1_BIT;
   (void)l9733_set_diag_mode(&sensor);
   // Set OUT1 diagnostic mode to "No Latch Mode"
-  sensor.diag_mode &= ~L9773_OUT1_BIT;
+  sensor.diag_mode &= ~L9733_OUT1_BIT;
   (void)l9733_set_diag_mode(&sensor);
 
   // Set OUT1 protection "ON"
-  sensor.protection |= L9773_OUT1_BIT;
+  sensor.protection |= L9733_OUT1_BIT;
   (void)l9733_set_protection(&sensor);
   // Set OUT1 protection "OFF"
-  sensor.protection &= ~L9773_OUT1_BIT;
+  sensor.protection &= ~L9733_OUT1_BIT;
   (void)l9733_set_protection(&sensor);
 
   (void)l9733_get_fault_diag(&sensor);
-  if (L9773_SHORT_CIRCUIT == sensor.fault[7]) {
+  if (L9733_SHORT_CIRCUIT == sensor.fault[7]) {
     printf("Oh no! OUT8 is in short circuit!\n");
   }
   return 0;
@@ -92,4 +92,4 @@ int main() {
 * Ubuntu, operating system
 
 ## References
-* [L9773 Datasheet](https://www.st.com/resource/en/datasheet/l9733.pdf)
+* [L9733 Datasheet](https://www.st.com/resource/en/datasheet/l9733.pdf)
