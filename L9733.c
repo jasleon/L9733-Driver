@@ -38,8 +38,8 @@ fms_rslt_t l9733_get_fault_diag(l9733_t *obj) {
   for (uint16_t i = 0U; i < L9773_OUTPUT_NUM; ++i) {
     uint16_t status = recv >> (2 * i);
     status &= 0x0003;
-    obj->status[i] = status;
-    printf("OUT%d: %s\n", i + 1, strings[obj->status[i]]);
+    obj->fault[i] = status;
+    printf("OUT%d: %s\n", i + 1, strings[obj->fault[i]]);
   }
   return FMS_RSLT_CMD_COMPLETE;
 }

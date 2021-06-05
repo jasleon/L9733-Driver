@@ -30,7 +30,7 @@ int main() {
   (void)l9733_set_protection(&sensor);
 
   (void)l9733_get_fault_diag(&sensor);
-  if (L9773_SHORT_CIRCUIT == sensor.status[7]) {
+  if (L9773_SHORT_CIRCUIT == sensor.fault[7]) {
     printf("Oh no! OUT8 is in short circuit!\n");
   }
   return 0;

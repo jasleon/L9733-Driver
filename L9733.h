@@ -5,6 +5,7 @@
 #ifndef L9733_H_
 #define L9733_H_
 
+#include <stdbool.h>
 #include <stdint.h>
 
 #include "spi.h"
@@ -67,7 +68,8 @@ typedef struct {
   uint8_t diag_mode;   //!< The diagnostic mode value
   uint8_t protection;  //!< The overcurrent protection value
   l9733_fault_status_t
-      status[L9773_OUTPUT_NUM];  //!< The fault status of outputs 1-8
+      fault[L9773_OUTPUT_NUM];  //!< The fault status of outputs 1-8
+  bool thermal_fault;  //!< This flag is set when a thermal fault occurs
 } l9733_t;
 
 /**
@@ -103,9 +105,11 @@ fms_rslt_t l9733_set_protection(l9733_t *obj);
  * Get the fault diagnostic of outputs 1-8
  * @param[in] obj  The L9773 object to use for sending the command
  * @note
- * - Copies the status from the fault register to the **status** data field
+ * - Copies the status from the fault register to the **fault** array data field
+ * - Sets the **thermal_fault** data field if a thermal fault occurred in at
+ * least on one of the independent outputs
  * @return The status of the request
-*/
+ */
 fms_rslt_t l9733_get_fault_diag(l9733_t *obj);
 
 /*******************************************************************************
