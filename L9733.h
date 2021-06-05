@@ -1,6 +1,12 @@
 /**
+ * @mainpage My L9733 Driver
+ * @section intro_section Introduction
+*/
+/**
  * @file L9733.h
  * @brief Provides a high level interface for interacting with an L9733 device.
+ * @author Antonio Sanchez
+ * @date Jun 6, 2021
  */
 #ifndef L9733_H_
 #define L9733_H_
@@ -75,40 +81,48 @@ typedef struct {
 /**
  * Set outputs 1-8 ON or OFF
  * @param[in] obj  The L9773 object to use for sending the command
+ * @return The status of the request
+ * @pre
+ * - The SPI object should be configured before calling this function
  * @note
  * - Writes the values from the **output** data field in the L9773 object
- * @return The status of the request
-*/
+ */
 fms_rslt_t l9733_set_output(l9733_t *obj);
 
 /**
  * Set the diagnostic mode on outputs 1-8 to "Latch Mode" or "No Latch Mode"
  * @param[in] obj  The L9773 object to use for sending the command
+ * @return The status of the request
+ * @pre
+ * - The SPI object should be configured before calling this function
  * @note
  * - Writes the values from the **diag_mode** data field in the L9773 object
  * - Set bit to 1 for "Latch Mode"
  * - Set bit to 0 for "No Latch Mode"
- * @return The status of the request
-*/
+ */
 fms_rslt_t l9733_set_diag_mode(l9733_t *obj);
 
 /**
  * Set the overcurrent protection on outputs 1-8 ON or OFF
  * @param[in] obj  The L9773 object to use for sending the command
+ * @return The status of the request
+ * @pre
+ * - The SPI object should be configured before calling this function
  * @note
  * - Writes the values from the **protection** data field in the L9773 object
- * @return The status of the request
-*/
+ */
 fms_rslt_t l9733_set_protection(l9733_t *obj);
 
 /**
  * Get the fault diagnostic of outputs 1-8
  * @param[in] obj  The L9773 object to use for sending the command
+ * @return The status of the request
+ * @pre
+ * - The SPI object should be configured before calling this function
  * @note
  * - Copies the status from the fault register to the **fault** array data field
  * - Sets the **thermal_fault** data field if a thermal fault occurred in at
  * least on one of the independent outputs
- * @return The status of the request
  */
 fms_rslt_t l9733_get_fault_diag(l9733_t *obj);
 
