@@ -19,15 +19,12 @@ extern "C" {
  * @brief SPI object
  */
 typedef struct {
-  uint8_t active_ssel;
   uint8_t mode;
-  uint8_t data_bits;
   bool msb_first;
-  void *rx_buffer;
-  uint32_t rx_buffer_size;
-  const void *tx_buffer;
-  uint32_t tx_buffer_size;
-  bool is_async;
+  uint64_t tx_buf;
+  uint64_t rx_buf;
+  uint32_t speed_hz;
+  bool full_duplex;
 } spi_t;
 
 /*******************************************************************************
