@@ -31,6 +31,7 @@ static fms_rslt_t l9733_set_cmd(l9733_t *obj, l9733_cmd_type_t cmd) {
       break;
   }
   printf("cmd: %s, msg: 0x%04x\n", strings[cmd], msg);
+  obj->bus->tx_buf = msg;
   return FMS_RSLT_CMD_COMPLETE;
 }
 
@@ -54,7 +55,8 @@ fms_rslt_t l9733_get_fault_diag(l9733_t *obj) {
       "L9733_OVERCURRENT",
   };
 
-  const uint16_t recv = 0x8001;
+  const uint16_t recv = (uint16_t)obj->bus->rx_buf;
+  
   for (uint16_t i = 0U; i < L9733_OUTPUT_NUM; ++i) {
     uint16_t status = recv >> (2 * i);
     status &= 0x0003;
