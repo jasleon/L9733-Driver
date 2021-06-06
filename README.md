@@ -88,6 +88,26 @@ int main() {
   return 0;
 }
 ```
+Here is the output from the terminal
+```
+~/L9733-Driver/build$ ./driver 
+cmd: out, msg: 0xac01
+cmd: out, msg: 0xac00
+cmd: dia, msg: 0xa301
+cmd: dia, msg: 0xa300
+cmd: pro, msg: 0xaa01
+cmd: pro, msg: 0xaa00
+OUT1: L9733_OPEN_LOAD
+OUT2: L9733_OK
+OUT3: L9733_OK
+OUT4: L9733_OK
+OUT5: L9733_OK
+OUT6: L9733_OK
+OUT7: L9733_OK
+OUT8: L9733_SHORT_CIRCUIT
+thermal_fault: 0
+Oh no! OUT8 is in short circuit!
+```
 
 ## Tool Chain
 * Visual Studio Code, code editing
