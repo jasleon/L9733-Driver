@@ -30,8 +30,7 @@ Here's a brief description of the integrated circuit taken from the datasheet
 
 ## Limitations
 * The SPI object should be configured before calling the driver functions
-* This driver does not support full-duplex SPI communication
-* This driver should not be used in daisy-chained configurations
+* This driver does not support daisy-chained configurations
 
 ## SPI Configuration
 

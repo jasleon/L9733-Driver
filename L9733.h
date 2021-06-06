@@ -17,8 +17,7 @@
  * - Get the thermal fault status
  * @section limit_section Limitations
  * - The SPI object should be configured before calling the driver functions
- * - This driver does not support full-duplex SPI communication
- * - This driver should not be used in daisy-chained configurations
+ * - This driver does not support daisy-chained configurations
  * @section cfg_section SPI Configuration
  * - The datasheet does not define a maximum SPI rate. However, it should reach
  * at least 5.4 MHz.
@@ -116,6 +115,8 @@ typedef struct {
  * - The SPI object should be configured before calling this function
  * @note
  * - Writes the values from the **output** data field in the L9733 object
+ * - Updates the fault status in the L9733 object, if the SPI communication is
+ * in full-duplex.
  */
 fms_rslt_t l9733_set_output(l9733_t *obj);
 
@@ -129,6 +130,8 @@ fms_rslt_t l9733_set_output(l9733_t *obj);
  * - Writes the values from the **diag_mode** data field in the L9733 object
  * - Set bit to 1 for "Latch Mode"
  * - Set bit to 0 for "No Latch Mode"
+ * - Updates the fault status in the L9733 object, if the SPI communication is
+ * in full-duplex.
  */
 fms_rslt_t l9733_set_diag_mode(l9733_t *obj);
 
@@ -140,6 +143,8 @@ fms_rslt_t l9733_set_diag_mode(l9733_t *obj);
  * - The SPI object should be configured before calling this function
  * @note
  * - Writes the values from the **protection** data field in the L9733 object
+ * - Updates the fault status in the L9733 object, if the SPI communication is
+ * in full-duplex.
  */
 fms_rslt_t l9733_set_protection(l9733_t *obj);
 
