@@ -48,9 +48,13 @@ This snippet shows how this driver should be used
 #include "L9733.h"
 
 int main() {
-  // Initialize data structures
+  // Create data structures
   spi_t spi = {};
   l9733_t sensor = {};
+  
+  // Initialize data structures
+  spi.speed_hz = 5400000; // 5.4 MHz
+  spi.mode = 2; // CPOL = 1; CPHA = 0
   sensor.bus = &spi;
 
   // Set OUT1 output "ON"
