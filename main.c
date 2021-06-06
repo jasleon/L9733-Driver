@@ -35,10 +35,10 @@ int main() {
 
   // Consider this as an illustrative example:
   // - Mock a fault status response from the L9733 device
-  spi.rx_buf = 0x8001;
+  spi.rx_buf = 0xE4E4;
   (void)l9733_get_fault_diag(&sensor);
-  if (L9733_SHORT_CIRCUIT == sensor.fault[7]) {
-    printf("Oh no! OUT8 is in short circuit!\n");
+  if (L9733_SHORT_CIRCUIT == sensor.fault[6]) {
+    printf("Oh no! OUT7 is in short circuit!\n");
   }
   return 0;
 }

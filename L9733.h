@@ -92,7 +92,7 @@ typedef enum {
   L9733_OPEN_LOAD = 1,      //!< Open load
   L9733_SHORT_CIRCUIT = 2,  //!< Short circuit to GND (low-side) or short
                             //!< circuit to Vbat (high-side)
-  L9733_OVERCURRENT = 4,    //!< Overcurrent
+  L9733_OVERCURRENT = 3,    //!< Overcurrent
 } l9733_fault_status_t;
 
 /** @brief L9733 Object */

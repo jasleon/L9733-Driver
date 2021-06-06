@@ -80,10 +80,10 @@ int main() {
 
   // Consider this as an illustrative example:
   // - Mock a fault status response from the L9733 device
-  spi.rx_buf = 0x8001;
+  spi.rx_buf = 0xE4E4;
   (void)l9733_get_fault_diag(&sensor);
-  if (L9733_SHORT_CIRCUIT == sensor.fault[7]) {
-    printf("Oh no! OUT8 is in short circuit!\n");
+  if (L9733_SHORT_CIRCUIT == sensor.fault[6]) {
+    printf("Oh no! OUT7 is in short circuit!\n");
   }
   return 0;
 }
@@ -97,16 +97,16 @@ cmd: dia, msg: 0xa301
 cmd: dia, msg: 0xa300
 cmd: pro, msg: 0xaa01
 cmd: pro, msg: 0xaa00
-OUT1: L9733_OPEN_LOAD
-OUT2: L9733_OK
-OUT3: L9733_OK
-OUT4: L9733_OK
+OUT1: L9733_OK
+OUT2: L9733_OPEN_LOAD
+OUT3: L9733_SHORT_CIRCUIT
+OUT4: L9733_OVERCURRENT
 OUT5: L9733_OK
-OUT6: L9733_OK
-OUT7: L9733_OK
-OUT8: L9733_SHORT_CIRCUIT
+OUT6: L9733_OPEN_LOAD
+OUT7: L9733_SHORT_CIRCUIT
+OUT8: L9733_OVERCURRENT
 thermal_fault: 0
-Oh no! OUT8 is in short circuit!
+Oh no! OUT7 is in short circuit!
 ```
 
 ## Tool Chain
