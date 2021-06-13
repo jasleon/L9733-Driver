@@ -1,4 +1,7 @@
 # L9733-Driver
+![build](https://github.com/jasleon/L9733-Driver/actions/workflows/main.yml/badge.svg)
+![GitHub last commit](https://img.shields.io/github/last-commit/jasleon/L9733-Driver)
+
 My interface for a driver of the L9733 integrated circuit
 
 ## Dependencies
